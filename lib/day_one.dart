@@ -8,7 +8,7 @@ class FirstWidget extends StatelessWidget {
     return Text(
       "Isaac",
       textDirection: TextDirection.ltr,
-      style: new TextStyle(color: Colors.black),
+      style: TextStyle(color: Colors.black, fontSize: 40.0),
     );
   }
 }
