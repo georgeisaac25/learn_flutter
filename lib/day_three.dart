@@ -68,8 +68,12 @@ class ColumnWidget extends StatelessWidget {
         Text('The code word is ‘Rochambeau,’ dig me?'),
         Text('Rochambeau!',
             style:
-                DefaultTextStyle.of(context).style.apply(fontSizeFactor: 2.0)),
-        ImageWidget()
+            DefaultTextStyle
+                .of(context)
+                .style
+                .apply(fontSizeFactor: 2.0)),
+        ImageWidget(),
+        ButtonWidget()
       ],
     );
   }
@@ -81,6 +85,36 @@ class ImageWidget extends StatelessWidget {
     return Image(
       image: AssetImage('images/xam.png'),
       alignment: Alignment.center,
+    );
+  }
+}
+
+class ButtonWidget extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return RaisedButton(
+      child: Text(
+        "Click me",
+        textDirection: TextDirection.ltr,
+        style: TextStyle(
+            fontFamily: "Roboto", fontSize: 20, fontWeight: FontWeight.w700),
+      ),
+      onPressed: () => buttonClickEvent(context),
+      elevation: 6.0,
+      color: Colors.deepOrange,
+    );
+  }
+
+  void buttonClickEvent(BuildContext context) {
+    var alert = AlertDialog(
+      title: Text("Working"),
+      content: Text("Its working"),
+    );
+
+    showDialog(context: context,
+        builder: (BuildContext context) {
+          return alert;
+        }
     );
   }
 }
